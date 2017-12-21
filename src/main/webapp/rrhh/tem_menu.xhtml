@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui">
+
+    <div class="ui-g">
+        <div class="ui-g-6">
+            <h:form>
+                <p:commandLink action="#{dtIndexBean.goHome()}">
+                    <h:outputText value="Home" />
+                </p:commandLink>
+                <h1>RCM SA</h1>
+            </h:form>            
+        </div>
+        <div class="ui-g-6">
+            <h:form>
+                <p:menuButton value="#">
+                    <p:menuitem value="Perfil" icon="ui-icon-disk"/>                                    
+                    <p:separator />
+                    <p:menuitem value="Salir" action="#" icon="ui-icon-key"/>
+                </p:menuButton>
+            </h:form> 
+        </div>
+    </div>
+</ui:composition>
+

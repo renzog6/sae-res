@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <f:view>
+
+
+            <h:form>
+                <h1><h:outputText value="Create/Edit"/></h1>
+                <p:panelGrid columns="2">
+                    <p:outputLabel value="IdPersona:" for="idPersona" />
+                    <p:inputText id="idPersona" value="#{dtPersonaBean.persona.idPersona}" title="IdPersona" required="true" requiredMessage="The IdPersona field is required."/>
+                    <p:outputLabel value="Nombre:" for="nombre" />
+                    <p:inputText id="nombre" value="#{dtPersonaBean.persona.nombre}" title="Nombre" required="true" requiredMessage="The Nombre field is required."/>
+                    <p:outputLabel value="Apellido:" for="apellido" />
+                    <p:inputText id="apellido" value="#{dtPersonaBean.persona.apellido}" title="Apellido" required="true" requiredMessage="The Apellido field is required."/>
+                    <p:outputLabel value="Dni:" for="dni" />
+                    <p:inputText id="dni" value="#{dtPersonaBean.persona.dni}" title="Dni" required="true" requiredMessage="The Dni field is required."/>
+                    <p:outputLabel value="Nacimiento:" for="nacimiento" />
+                    <p:inputText id="nacimiento" value="#{dtPersonaBean.persona.nacimiento}" title="Nacimiento" required="true" requiredMessage="The Nacimiento field is required.">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </p:inputText>
+                    <p:outputLabel value="Sexo:" for="sexo" />
+                    <p:inputText id="sexo" value="#{dtPersonaBean.persona.sexo}" title="Sexo" />
+                </p:panelGrid>
+                <p:commandButton value="Guardar" action="#{dtPersonaBean.save()}"/>
+            </h:form>
+        </f:view>
+
+    </h:body>
+</html>
+

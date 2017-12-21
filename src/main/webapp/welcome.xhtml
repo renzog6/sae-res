@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                template="templates/template.xhtml">
+
+    <ui:define name="content">
+        <f:view>
+
+            <h:form>
+                <p:panel header="Menu:">   
+
+                        <p:panelGrid columns="3" style="margin: 0 auto;" layout="grid">
+
+                            <p:panel id="rh_Empleados" header="Empleados.">
+                                <h:form>                               
+                                    <p:commandButton value="Lista" action="#{dtPersonaBean.listPersona()}" styleClass="ui-priority-primary" />
+                                    <p:commandButton value="Nuevo" action="#{dtPersonaBean.newPersona()}" styleClass="ui-priority-primary" />
+                                </h:form>
+                            </p:panel>
+
+                            <p:panel id="rh_Persona" header="Personas.">
+                                <h:form>                               
+                                    <p:commandButton value="Lista" action="#{dtPersonaBean.listPersona()}" styleClass="ui-priority-primary" />
+                                    <p:commandButton value="Nuevo" action="#{dtPersonaBean.newPersona()}" styleClass="ui-priority-primary" />
+                                </h:form>
+                            </p:panel>
+
+                        </p:panelGrid>
+                  
+                </p:panel>
+            </h:form>
+
+        </f:view>   
+    </ui:define>
+</ui:composition>
+

@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <f:facet name="first">
+            <title>SAE - RCM SA</title>
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
+            <h:outputStylesheet library="css" name="default.css"/>
+            <h:outputStylesheet library="css" name="index.css"/>
+        </f:facet>
+    </h:head>
+    <h:body>
+        <p:growl id="messages" showDetail="true" showSummary="true"/>
+
+        <div class="wrapper">
+            <h:form class="login">
+                <p class="title">Bienvenido a SAE - RCM SA</p>
+
+                <p:outputLabel value="Usuario:" />
+                <p:inputText id="user" value="admin" placeholder="Usuario" title="Usuario" required="true"/>
+                <i class="fa fa-user"></i>   
+                <p:focus for="user"/>
+
+                <p:outputLabel value="Contraseña:" />
+                <p:password id="pass" value="admin" placeholder="Contraseña" title="Contraseña" required="true" />
+                <i class="fa fa-key"></i>
+
+                <a href="#">Restablecer contraseña?</a>
+
+                <p:commandButton value="Login" action="#{dtSessionBean.checkLogin()}" update="messages" />
+
+            </h:form>
+            <footer><a target="blank" href="#">@HellNeX</a></footer>
+
+        </div>
+    </h:body>
+</html>
+
