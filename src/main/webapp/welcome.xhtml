@@ -12,25 +12,23 @@
 
             <h:form>
                 <p:panel header="Menu:">   
-
                         <p:panelGrid columns="3" style="margin: 0 auto;" layout="grid">
 
-                            <p:panel id="rh_Empleados" header="Empleados.">
-                                <h:form>                               
-                                    <p:commandButton value="Lista" action="#{dtPersonaBean.listPersona()}" styleClass="ui-priority-primary" />
-                                    <p:commandButton value="Nuevo" action="#{dtPersonaBean.newPersona()}" styleClass="ui-priority-primary" />
+                            <p:panel id="panel_equipo" header="Equipos.">
+                                <h:form id="form_equipo" >                               
+                                    <p:commandButton id="e01" value="Lista" action="#{dtEquipoBean.listEquipo()}" styleClass="ui-priority-primary" />
+                                    <p:commandButton id="e02" value="Nuevo" action="#{dtEquipoBean.newEquipo()}" styleClass="ui-priority-primary" />
                                 </h:form>
                             </p:panel>
 
-                            <p:panel id="rh_Persona" header="Personas.">
-                                <h:form>                               
-                                    <p:commandButton value="Lista" action="#{dtPersonaBean.listPersona()}" styleClass="ui-priority-primary" />
-                                    <p:commandButton value="Nuevo" action="#{dtPersonaBean.newPersona()}" styleClass="ui-priority-primary" />
+                            <p:panel id="panel_persona" header="Personas.">
+                                <h:form id="form_persona">                               
+                                    <p:commandButton id="p01" value="Lista" action="#{dtPersonaBean.listPersona()}" styleClass="ui-priority-primary" />
+                                    <p:commandButton id="p02" value="Nuevo" action="#{dtPersonaBean.newPersona()}" styleClass="ui-priority-primary" />
                                 </h:form>
                             </p:panel>
 
-                        </p:panelGrid>
-                  
+                        </p:panelGrid>                  
                 </p:panel>
             </h:form>
 
