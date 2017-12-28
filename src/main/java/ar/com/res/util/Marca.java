@@ -94,7 +94,7 @@ public class Marca implements Serializable {
 
     @Override
     public String toString() {
-        return "ar.com.res.rrhh.utils.Marca[ id=" + id + " ]";
+        return "id=" + id + " Nombre: " + nombre;
     }
 
     @XmlTransient

@@ -1,4 +1,4 @@
-package ar.com.equipo.dao;
+package ar.com.res.util.ejb;
 
 import java.util.List;
 import javax.persistence.EntityManager;

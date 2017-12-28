@@ -1,9 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package ar.com.res.util;
+package ar.com.res.util.ejb;
 
 import ar.com.res.util.Marca;
 import java.util.List;

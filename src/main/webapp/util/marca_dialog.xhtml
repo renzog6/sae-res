@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core" >
+
+    <p:dialog header="Dialogo"  widgetVar="dlgRemoveMarca" resizable="false" style="text-align: center;" >
+        <h:panelGrid columns="1" cellpadding="5">
+            <p:outputLabel value="Confirma que desea borrar?" />            
+            <p:outputLabel value="#{dtMarcaBean.marca.nombre}" />
+        </h:panelGrid>
+        <p:separator />
+        <p:commandButton value="Si." onclick="PF('dlgRemoveMarca').hide()" update="mainForm" type="button" icon="ui-icon-check" >
+              <f:ajax listener="#{dtMarcaBean.remove()}" render="tblMarca"/> 
+        </p:commandButton>
+        <p:commandButton value="No." onclick="PF('dlgRemoveMarca').hide()" type="button" icon="ui-icon-cancel" />
+
+    </p:dialog>
+
+</ui:composition>
+

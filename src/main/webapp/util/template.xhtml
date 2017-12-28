@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <f:view contentType="text/html">
+        <h:head>
+            <f:facet name="first">
+                <title>RCM SA</title>
+                <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+                <meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
+                <h:outputStylesheet library="css" name="default.css"/>
+                <h:outputStylesheet library="css" name="cssLayout.css"/>                 
+            </f:facet>
+        </h:head>
+
+        <h:body>
+
+            <p:growl id="messages" showDetail="true" showSummary="true"/>
+
+            <p:layout fullPage="true">
+
+                <p:layoutUnit position="center">
+                    <h:form>                         
+                        <p:menubar>
+                            <p:menuitem value="Menu" action="#{dtSessionBean.goHome()}" icon="ui-icon-home" />
+                            <f:facet name="options">                
+                                <p:commandButton value="Logout" action="#{dtSessionBean.logout()}" icon="ui-icon-extlink" update="messages" />
+                            </f:facet>
+                        </p:menubar>
+                    </h:form>
+
+                    <ui:insert name="content"/>
+                </p:layoutUnit>
+
+                <p:layoutUnit position="south" size="50" closable="true" collapsible="true">
+                    @HellNeX - #{dtPersonaBean.fecha_actual.toString()}
+                </p:layoutUnit>
+
+            </p:layout>
+        </h:body>
+    </f:view>
+</html>
+

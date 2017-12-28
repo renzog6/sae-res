@@ -4,7 +4,7 @@ import ar.com.equipo.dao.EquipoCategoriaFacadeLocal;
 import ar.com.equipo.dao.EquipoFacadeLocal;
 import ar.com.equipo.dao.EquipoModeloFacadeLocal;
 import ar.com.equipo.dao.EquipoTipoFacadeLocal;
-import ar.com.res.util.MarcaFacadeLocal;
+import ar.com.res.util.ejb.MarcaFacadeLocal;
 import ar.com.res.util.Marca;
 import java.io.Serializable;
 import java.util.Date;

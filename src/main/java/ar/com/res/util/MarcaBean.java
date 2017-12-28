@@ -1,15 +1,15 @@
 package ar.com.res.util;
 
-import ar.com.res.rrhh.utils.EstadoCivilTipo;
-import ar.com.res.rrhh.utils.GeneroTipo;
+import ar.com.res.util.ejb.MarcaFacadeLocal;
 import java.io.Serializable;
-import java.util.Date;
 import java.util.List;
 import java.util.logging.Logger;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 
 /**
  *
@@ -26,55 +26,47 @@ public class MarcaBean implements Serializable {
     private MarcaFacadeLocal daoMarca;
 
     private List<Marca> list;
-    private List<Marca> filter;
     private Marca marca;
-    private Marca selected;
-
-    private int temp;
-
-    private Date fecha_actual;
 
     @PostConstruct
     public void init() {
-        fecha_actual = new Date();
+        System.out.println(LOG.toString());
     }
 
-    public String newMarca() {
-        marca = new Marca();
-        return "/rrhh/marca_form?faces-redirect=true";
-    }
-
-    public String listMarca() {
-        System.out.println("ar.com.rcm.rrhh.MarcaBean.listMarca()");
+    public void initList() {
         list = daoMarca.findAll();
-        return "/rrhh/marca_list?faces-redirect=true";
     }
 
-    public GeneroTipo[] getSexos() {
-        return GeneroTipo.values();
+    public void initCreate() {
+        marca = new Marca();
     }
 
-    public EstadoCivilTipo[] getEstadosCivil() {
-        return EstadoCivilTipo.values();
-    }
-
-    public String save() {
-        System.out.println("ar.com.rcm.rrhh.MarcaBean.save()");
-        String dir = "";
+    public void create() {
         try {
-
             daoMarca.create(marca);
-            list = daoMarca.findAll();
             marca = new Marca();
-
-            dir = "/rrhh/marca_list?faces-redirect=true";
+            initList();
         } catch (Exception e) {
-            dir = "/templates/error.xhtml";
+            e.printStackTrace();
         }
-        return dir;
     }
-    
-        public String update() {
+
+    public void initRemove(long id) {
+        marca = daoMarca.find(id);
+        System.out.println(marca.getNombre());
+    }
+
+    public void remove() {
+        try {
+            daoMarca.remove(marca);
+            marca = new Marca();
+            initList();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public String update() {
         System.out.println("ar.com.rcm.rrhh.MarcaBean.update()");
         String dir = "";
         try {
@@ -84,20 +76,6 @@ public class MarcaBean implements Serializable {
             marca = new Marca();
 
             dir = "/rrhh/marca_list?faces-redirect=true";
-        } catch (Exception e) {
-            dir = "/templates/error.xhtml";
-        }
-        return dir;
-    }
-
-    public String view() {
-        System.out.println("ar.com.rcm.rrhh.MarcaBean.view()");
-        String dir = "";
-        try {
-
-            this.marca = this.selected;
-
-            dir = "/rrhh/marca_view?faces-redirect=true";
         } catch (Exception e) {
             dir = "/templates/error.xhtml";
         }
@@ -120,32 +98,12 @@ public class MarcaBean implements Serializable {
         this.list = list;
     }
 
-    public List<Marca> getFilter() {
-        return filter;
+    public void destroyWorld() {
+        addMessage("System Error", "Please try again later.");
     }
 
-    public void setFilter(List<Marca> filter) {
-        this.filter = filter;
+    public void addMessage(String summary, String detail) {
+        FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, summary, detail);
+        FacesContext.getCurrentInstance().addMessage(null, message);
     }
-
-    public Date getFecha_actual() {
-        return fecha_actual = new Date();
-    }
-
-    public int getTemp() {
-        return temp;
-    }
-
-    public void setTemp(int temp) {
-        this.temp = temp;
-    }
-
-    public Marca getSelected() {
-        return selected;
-    }
-
-    public void setSelected(Marca selected) {
-        this.selected = selected;
-    }
-
 }

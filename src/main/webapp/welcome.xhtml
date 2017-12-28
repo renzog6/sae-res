@@ -12,23 +12,31 @@
 
             <h:form>
                 <p:panel header="Menu:">   
-                        <p:panelGrid columns="3" style="margin: 0 auto;" layout="grid">
+                    <p:panelGrid columns="3" style="margin: 0 auto;" layout="grid">
 
-                            <p:panel id="panel_equipo" header="Equipos.">
-                                <h:form id="form_equipo" >                               
-                                    <p:commandButton id="e01" value="Lista" action="#{dtEquipoBean.listEquipo()}" styleClass="ui-priority-primary" />
-                                    <p:commandButton id="e02" value="Nuevo" action="#{dtEquipoBean.newEquipo()}" styleClass="ui-priority-primary" />
-                                </h:form>
-                            </p:panel>
+                        <p:panel id="panel_equipo" header="Equipos.">
+                            <h:form id="form_equipo" >                               
+                                <p:commandButton id="e01" value="Lista" action="#{dtEquipoBean.listEquipo()}" styleClass="ui-priority-primary" />
+                                <p:commandButton id="e02" value="Nuevo" action="#{dtEquipoBean.newEquipo()}" styleClass="ui-priority-primary" />
+                            </h:form>
+                        </p:panel>
 
-                            <p:panel id="panel_persona" header="Personas.">
-                                <h:form id="form_persona">                               
-                                    <p:commandButton id="p01" value="Lista" action="#{dtPersonaBean.listPersona()}" styleClass="ui-priority-primary" />
-                                    <p:commandButton id="p02" value="Nuevo" action="#{dtPersonaBean.newPersona()}" styleClass="ui-priority-primary" />
-                                </h:form>
-                            </p:panel>
+                        <p:panel id="panel_persona" header="Personas.">
+                            <h:form id="form_persona">                               
+                                <p:button outcome="rrhh/persona_list" value="Personas" />
 
-                        </p:panelGrid>                  
+<!--                                    <p:commandButton id="p01" value="Lista" action="#{dtPersonaBean.listPersona()}" styleClass="ui-priority-primary" />
+                                 <p:commandButton id="p02" value="Nuevo" action="#{dtPersonaBean.newPersona()}" styleClass="ui-priority-primary" />-->
+                            </h:form>
+                        </p:panel>
+
+                        <p:panel id="panel_util" header="Util.">
+                            <h:form id="form_util">                               
+                                <p:button outcome="util/util_main" value="Main" />
+                            </h:form>
+                        </p:panel>
+
+                    </p:panelGrid>                  
                 </p:panel>
             </h:form>
 
